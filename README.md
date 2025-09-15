@@ -1,4 +1,3 @@
-
 ## compile
 
 ```sh
@@ -29,7 +28,22 @@ da65 korpiq-1.prg
 c1541 -format korpiq-disk,01 d64 korpiq-disk.d64 -attach korpiq-disk.d64 -write korpiq-1.prg korpiq-1
 ```
 
+## run
+
+```
+x64 korpiq-disk.d64
+```
+
+### prerequisites
+
+```
+sudo apt install vice
+cd /usr/share/vice
+sudo chown -r $USER:$USER .
+```
+
+Then clone this repository there: https://github.com/asig/vice-roms
 
 ## ISSUES
 
-- x64 hangs or gives "device not present" when trying to load
+- none known right now, sample code too simple
