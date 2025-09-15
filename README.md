@@ -32,5 +32,4 @@ c1541 -format korpiq-disk,01 d64 korpiq-disk.d64 -attach korpiq-disk.d64 -write 
 
 ## ISSUES
 
-- PRG lacks the two-byte load address header, that should specify $0801
-- IDK how to make `x64` load a lone `.prg` file.
+- x64 hangs or gives "device not present" when trying to load
