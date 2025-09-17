@@ -7,13 +7,17 @@
 *=$0801
 .word * ; first two bytes of a PRG file: starting memory address to load rest of the file at
 *=$0801
+.byte 11, 8, 0, 0, 158, 50, 48, 54, 49, 0, 0, 0
+*=2061
 start:
-    ldy #$00 ; FIXME: figure out how to store "0SYS2061" to skip this random BASIC protection hack
-loop1:
+    sei ; avoid blinking caused by interrupts
+@loop:
     lda $d012
+@wait:
     cmp $d012
-    beq loop1
+    beq @wait
+    ora #$05
     sta $d021
     sta $d020
-    jmp loop1
+    jmp @loop
 .bss
