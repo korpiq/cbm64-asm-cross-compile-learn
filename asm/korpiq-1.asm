@@ -11,6 +11,8 @@ start:
     ldy #$00 ; FIXME: figure out how to store "0SYS2061" to skip this random BASIC protection hack
 loop1:
     lda $d012
+    cmp $d012
+    beq loop1
     sta $d021
     sta $d020
     jmp loop1
