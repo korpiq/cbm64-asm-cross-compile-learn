@@ -1,0 +1,4 @@
+.vscode/
+build/
+*.prg
+*.d64
