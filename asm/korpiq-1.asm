@@ -1,7 +1,6 @@
 ; korpiq-1.asm
 .feature pc_assignment
 
-
 .export start
 
 *=$0801
@@ -10,6 +9,7 @@
 .byte 11, 8, 221, 49, 158, 50, 48, 54, 49, 0, 0, 0 ; SYS2061
 *=2061
 start:
+    jsr joys_init
     sei ; avoid blinking caused by interrupts
 @loop:
     lda $d012
@@ -20,5 +20,8 @@ start:
     beq @wait
     sta $d020
     sta $d021
+    jsr joys_read
     jmp @loop
+
+.include "joysticks-cga.asm"
 .bss
