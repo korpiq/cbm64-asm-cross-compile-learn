@@ -2,12 +2,8 @@
 ; from https:;www.protovision.games/hardw/build4player.php?language=en#codeit
 ; read current state of each of the 4 joysticks (native ports and user port CGA)
 
-.data
-joysticks:
-
-.byte 0,0,0,0
-
 .code
+
 joys_init:
 
     LDA #$80
@@ -20,7 +16,6 @@ joys_read:
 
     LDA $DC01 ; read Port1
     AND #$1F
-    rts
     STA joysticks+$00
 
     LDA $DC00 ; read Port2
@@ -49,3 +44,10 @@ joys_read:
     ORA joysticks+$03
     STA joysticks+$03
     RTS
+
+.data
+* = $0400
+joysticks:
+
+.byte 0,0,0,0
+

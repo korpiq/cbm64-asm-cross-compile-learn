@@ -20,6 +20,8 @@ start:
     beq @wait
     sta $d020
     sta $d021
+    cpy #$00
+    bne @loop
     jsr joys_read
     jmp @loop
 
